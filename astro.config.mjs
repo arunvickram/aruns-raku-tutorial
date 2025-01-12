@@ -7,7 +7,7 @@ import fs from 'fs';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'The Definitive Raku Tutorial',
+			title: "Arun's Raku Tutorial",
 			logo: {
 				src: './src/assets/Camelia.svg',
 			},
