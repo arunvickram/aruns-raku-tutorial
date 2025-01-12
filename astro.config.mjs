@@ -1,14 +1,25 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import fs from 'fs';
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'The Definitive Raku Tutorial',
+			logo: {
+				src: './src/assets/Camelia.svg',
+			},
 			social: {
 				github: 'https://github.com/withastro/starlight',
+			},
+			expressiveCode: {
+				shiki: {
+					langs: [
+						JSON.parse(fs.readFileSync('./src/assets/raku.json', 'utf-8')),
+					]	
+				}
 			},
 			sidebar: [
 				{
@@ -26,22 +37,30 @@ export default defineConfig({
 					]
 				},
 				{
-					label: 'Intermediate Concepts in Raku',
+					label: 'Object-oriented programming',
 					items: [
-						{ label: 'The Topic Variable $_', slug: 'intermediate/topic-variable' },
+						{ label: 'OOP', slug: 'oop/oop' }
 					]
 				},
 				{
-					label: 'Guides',
+					label: 'Intermediate Concepts in Raku',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
+						{ label: 'The Topic Variable $_', slug: 'intermediate/topic-variable' },
+						{ label: 'The Whatever Star `*`', slug: 'intermediate/whatever' },
+
+					]
 				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
+				// {
+				// 	label: 'Guides',
+				// 	items: [
+				// 		// Each item here is one entry in the navigation menu.
+				// 		{ label: 'Example Guide', slug: 'guides/example' },
+				// 	],
+				// },
+				// {
+				// 	label: 'Reference',
+				// 	autogenerate: { directory: 'reference' },
+				// },
 			],
 		}),
 	],
