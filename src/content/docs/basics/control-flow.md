@@ -82,7 +82,7 @@ with $x {
 
 } orwith $y {
 
-} without {
+} else {
 
 }
 
@@ -124,14 +124,4 @@ given {
 for @values -> $x {
 
 }
-```
-
-```raku
-for @values {
-  $_
-}
-```
-
-```raku
-
 ```
