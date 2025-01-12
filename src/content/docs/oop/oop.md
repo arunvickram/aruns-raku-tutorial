@@ -38,7 +38,9 @@ incredible detail into the field such as scope and container type.
 In our example class `Account`, the field declaration `$.id` tells us the following:
 
 1. The `$` in the twigil `$.` indicates a *scalar* just like the sigil `$`, meaning that the variable holds a singular value as opposed to a list or hash.
-2. The `.` in the twigil `$.` indicates a public field, meaning that the field is accessible outside of instance methods.
+2. The `.` in the twigil `$.` tells Raku to generate accessor methods for `$.id`, meaning that `id` is accessible outside of instance methods. 
+
+There are no public fields in Raku.
 
 Taking the example `$account` from above, because we declared the field `id` using the twigil, `$.`, we can access the id of `$account` with a simple accessor method call:
 
@@ -55,7 +57,7 @@ say $account.transaction-history;
 
 #### Private fields
 
-To make a field *private*, meaning that it is only accessible within instance methods, simply do the following:
+To keep a field *private* and inaccessible from outside the class, meaning that it is only accessible within instance methods, simply do the following:
 
 ```raku
 class PrivateAccount {
