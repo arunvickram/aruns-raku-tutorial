@@ -78,14 +78,13 @@ unless %user-config {
 There's a near identical statement to the `if` statement in Raku: the `with` statement. The crucial difference between `if` and `with` is that `with` checks for [*definedness*](#) rather than truthiness.
 
 ```raku
-with $x {
+with health-check("server1.acme.com") -> $health-check-result {
 
-} orwith $y {
+} orwith health-check("server2.acme.com") -> $health-check-result {
 
 } else {
 
 }
-
 ```
 
 ##### Definedness
